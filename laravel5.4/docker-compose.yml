@@ -6,7 +6,7 @@ services:
       dockerfile: app.dockerfile
     working_dir: /var/www
     volumes:
-      - ./app_bukugrafi:/var/www
+      - ./app:/var/www
   web:
     build:
       context: ./
@@ -19,9 +19,9 @@ services:
   database:
     image: mysql:5.6
     volumes:
-      - /Users/mac/PROJECT/Bukugrafi/dbdata:/var/lib/mysql
+      - ./dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=bukugrafi"
+      - "MYSQL_DATABASE=app"
       - "MYSQL_USER=homestead"
       - "MYSQL_PASSWORD=secret"
       - "MYSQL_ROOT_PASSWORD=secret"
